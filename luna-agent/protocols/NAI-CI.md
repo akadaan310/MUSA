@@ -77,3 +77,54 @@ four live pages. What follows is what HELD, what BROKE, and what CHANGED.
 - `visible` must be machine-checked (bounding rect), never trusted from markup.
 - Icon-only links produce empty labels — acceptable; the verb+target still act.
 - Heavy pages (GitHub) settle slowly; `unsettled` is a valid in-between, not a failure.
+
+## Fifth objective — identity, cells, AI, tabloids, LSTP (verified 2026-09-28)
+
+Built on the hand (localhost:8474), all tested end-to-end, 25/25 checks green.
+
+**Identity (first offering).** Monotonic numeric ID space in `identities.json`.
+`POST /identity/claim` → `{id, claim_token, reach}` — the claim response carries
+the extended reach instantly (all offering addresses, the halt page, the Surface).
+`GET /identity/divine?token=` re-derives the id. Verified: claim → id 1, claim →
+id 2, divine(token) → 1, bad token → 404, and after a full service restart the
+old token still divines id 1 — identity survives restarts.
+
+**Cells.** `POST /cell {parent_id, prompt}` → `{id, parent_id, prompt, path}`,
+persisted in `cells.json`. Verified chain: cells 1→2→3, `GET /cell/3/path`
+returns all three prompts root-to-leaf. Unknown parent → 404.
+
+**AI.** `POST /ai {prompt}` → `{response, endpoint}`. Winning endpoint:
+Pollinations anonymous text API (`text.pollinations.ai`, no sign-in, no key) —
+`PONG` probe and real round trips verified from the VM. DuckDuckGo's duck.ai
+was probed and rejected: its status endpoint returns an anti-bot JS challenge
+instead of a token — too fragile to wire. Rotation: on 429/503/rate-limit the
+endpoint is marked retired and the next candidate (second Pollinations model)
+takes over automatically.
+
+**Tabloids.** `POST /tabloid/run {prompts:[...]}` chains cells, calls the AI per
+cell, logs `{tabloid_id, cells, ai_calls, result}` to `tabloids.jsonl` + trace.
+Verified: 2-prompt tabloid → cells 4,5, both AI calls ok, result returned.
+
+**LSTP v1.** The transport is now the protocol: every mutating act arrives as
+`{proto:"lstp/1", from:<identity id>, to:"lstp/1/<offering>", idstamp, body}`.
+Anonymous acts are refused (401). The trace records the author on every act.
+`GET /proto` serves the spec. Full spec: `protocols/LSTP.md`.
+
+**Mail.** `POST /mail/send {from, to, body}` (enveloped, author must match from)
+→ envelope `{proto, from, to, idstamp, body, process:"browser-hand"}` stored per
+identity in `mail.json`; `GET /mail/inbox?id=` reads it. Verified: A→B send,
+B's inbox delivers the exact body.
+
+**Surface reframed.** `GET /` is now the generalized windowing form: five
+windows — identity, browser, cells, ai, mail — each labeled with its protocol
+address (`lstp/1/identity`, …). Windows are structures, not pixels.
+
+**Protocol round trip (real outputs, 2026-09-28):**
+claim → id 3 (+reach) → enveloped `/ai` → "WINDOWS ARE STRUCTURES" →
+enveloped `/tabloid/run` → tabloid 2, author 3, result "SECOND LIGHT" →
+enveloped `/mail/send` 3→4 → inbox(4) → 1 message, body "SECOND LIGHT" →
+trace: `('sent', 'author=3 from=3 to=4')`.
+
+**What didn't hold:** DuckDuckGo duck.ai as an AI backend (anti-bot wall —
+documented above, not wired). Anonymous writes are refused by design now, so
+older plain-JSON callers of /cell, /ai, /tabloid/run must envelop.
