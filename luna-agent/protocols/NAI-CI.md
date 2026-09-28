@@ -170,3 +170,20 @@ in the seal string -> 403 "seal refused." Note: a warm context cannot fetch
 the seal URL from the hand itself while the hand is single-threaded (the
 /read call deadlocks) — verified instead via direct GET (200, seal checks
 out) plus a warm-context read of the exact rendered bytes.
+
+## Virtual tabs (2026-09-28)
+
+Tabs that aren't real: no loading, no rendering, no memory. POST /vtabs/open
+{url, label} creates one — just {id, url, label, state:"virtual"}; no browser
+context is touched. GET /vtabs lists them. POST /vtabs/materialize {vtab_id}
+loads the URL into a warm pool context on demand and returns its structures
+(affordances + blocks); the vtab becomes "live". POST /vtabs/close {vtab_id}
+drops it. Verified: 20 virtual tabs opened with ~0 memory delta (56KB noise),
+all state "virtual"; one materialized (1 affordance, 3 blocks — "Example
+Domain"); all closed clean.
+
+Lean chromium launch flags on the warm pool: --disable-gpu,
+--disable-dev-shm-usage, --disable-extensions, --disable-background-networking,
+--disable-sync, --no-first-run, --disable-default-apps (+ --no-sandbox,
+headless shell kept). Pool still 5/5 warm after restart; /surface on the halt
+page returns the halt line.
