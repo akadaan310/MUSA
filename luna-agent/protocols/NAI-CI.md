@@ -148,3 +148,25 @@ Two real actions taken from structures it read. The bot wall is Google-side,
 not ours. Terminal form:
 
   curl "http://127.0.0.1:8474/bridge?url=https://www.google.com&q=your+goal+here"
+
+## Sealed memory: the golden scroll (2026-09-28, verified live)
+
+URLs are seals, not stamps. POST /memory/seal {label, text} folds a memory
+under the golden ramz — the seal logic is reused directly from
+protocols/ramz/ramz.py (envelope {ramz, from, to, idstamp, body, seal};
+ramz is golden; the seal is a tamper-evident sha256 digest over the body;
+tampered seals refuse). The seal URL carries the whole envelope
+base64url-encoded: self-contained, pasteable into any prompt, openable by
+any session. Seals persist in memory_seals.json on the hand.
+
+GET /memory/open?seal=<s> verifies the seal and renders the golden scroll:
+a stark dark-and-gold page with the memory as numbered blocks a session can
+program with. A tampered seal gets HTTP 403, plainly: "seal refused."
+
+Verified end to end: sealed "the quick brown fox" and the bridge google.com
+trace summary as real memories; opened the scroll inside a warm browser
+context and read all 5 blocks back (h1 + 4 paragraphs); flipped one character
+in the seal string -> 403 "seal refused." Note: a warm context cannot fetch
+the seal URL from the hand itself while the hand is single-threaded (the
+/read call deadlocks) — verified instead via direct GET (200, seal checks
+out) plus a warm-context read of the exact rendered bytes.
