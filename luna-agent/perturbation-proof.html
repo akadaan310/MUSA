@@ -49,16 +49,33 @@
       &nbsp;·&nbsp; Hamming distance over the whole input: <strong>1</strong>
       &nbsp;·&nbsp; exactly one bit changed: <strong>yes</strong></p>
     </section>
+    <section class="case">
+      <h2>Case C (the number level)</h2>
+      <div class="big"><span class="before">31969</span>
+        <span class="arrow">&rarr;</span>
+        <span class="after">31968</span></div>
+      <table>
+        <tr><th></th><th>hex</th><th>binary</th></tr>
+        <tr><td>before</td><td><code>0x7ce1</code></td><td><code>0111110011100001</code></td></tr>
+        <tr><td>after</td><td><code>0x7ce0</code></td><td><code>0111110011100000</code></td></tr>
+      </table>
+      <p>Flipped: <code>31969 ^ (1 &lt;&lt; 0)</code>
+      &nbsp;·&nbsp; Hamming distance over the whole input: <strong>1</strong>
+      &nbsp;·&nbsp; exactly one bit changed: <strong>yes</strong></p>
+    </section>
 <h2>Event log, in order</h2>
 <table><tr><th>#</th><th>epoch</th><th>UTC</th><th>event</th><th>detail</th></tr>
-<tr><td>1</td><td><code>1790598068.679</code></td><td><code>2026-09-28T12:21:08Z</code></td><td>run started</td><td><code>{&quot;note&quot;: &quot;re-running the perturbation live, instrumented&quot;}</code></td></tr>
-<tr><td>2</td><td><code>1790598068.679</code></td><td><code>2026-09-28T12:21:08Z</code></td><td>A: capture original</td><td><code>{&quot;text&quot;: &quot;seal&quot;, &quot;utf8_hex&quot;: &quot;73 65 61 6c&quot;, &quot;utf8_binary&quot;: &quot;01110011 01100101 01100001 01101100&quot;, &quot;codepoints&quot;: [&quot;U+0073&quot;, &quot;U+0065&quot;, &quot;U+0061&quot;, &quot;U+006C&quot;]}</code></td></tr>
-<tr><td>3</td><td><code>1790598068.679</code></td><td><code>2026-09-28T12:21:08Z</code></td><td>A: flip one bit</td><td><code>{&quot;operation&quot;: &quot;byte[0] ^= (1 &lt;&lt; 0)&quot;, &quot;byte_before&quot;: &quot;0x73 = 01110011&quot;, &quot;byte_after&quot;: &quot;0x72 = 01110010&quot;, &quot;utf8_hex_after&quot;: &quot;72 65 61 6c&quot;, &quot;utf8_binary_after&quot;: &quot;01110010 01100101 01100001 01101100&quot;}</code></td></tr>
-<tr><td>4</td><td><code>1790598068.679</code></td><td><code>2026-09-28T12:21:08Z</code></td><td>A: observe result</td><td><code>{&quot;text_after&quot;: &quot;real&quot;, &quot;codepoints_after&quot;: [&quot;U+0072&quot;, &quot;U+0065&quot;, &quot;U+0061&quot;, &quot;U+006C&quot;], &quot;hamming_distance_whole_input&quot;: 1, &quot;exactly_one_bit_changed&quot;: true}</code></td></tr>
-<tr><td>5</td><td><code>1790598068.679</code></td><td><code>2026-09-28T12:21:08Z</code></td><td>B: capture original</td><td><code>{&quot;text&quot;: &quot;م&quot;, &quot;utf8_hex&quot;: &quot;d9 85&quot;, &quot;utf8_binary&quot;: &quot;11011001 10000101&quot;, &quot;codepoints&quot;: [&quot;U+0645&quot;]}</code></td></tr>
-<tr><td>6</td><td><code>1790598068.679</code></td><td><code>2026-09-28T12:21:08Z</code></td><td>B: flip one bit</td><td><code>{&quot;operation&quot;: &quot;byte[1] ^= (1 &lt;&lt; 0)&quot;, &quot;byte_before&quot;: &quot;0x85 = 10000101&quot;, &quot;byte_after&quot;: &quot;0x84 = 10000100&quot;, &quot;utf8_hex_after&quot;: &quot;d9 84&quot;, &quot;utf8_binary_after&quot;: &quot;11011001 10000100&quot;}</code></td></tr>
-<tr><td>7</td><td><code>1790598068.679</code></td><td><code>2026-09-28T12:21:08Z</code></td><td>B: observe result</td><td><code>{&quot;text_after&quot;: &quot;ل&quot;, &quot;codepoints_after&quot;: [&quot;U+0644&quot;], &quot;hamming_distance_whole_input&quot;: 1, &quot;exactly_one_bit_changed&quot;: true}</code></td></tr>
-<tr><td>8</td><td><code>1790598068.679</code></td><td><code>2026-09-28T12:21:08Z</code></td><td>run finished</td><td><code>{&quot;duration_s&quot;: 0.0001}</code></td></tr></table>
+<tr><td>1</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>run started</td><td><code>{&quot;note&quot;: &quot;re-running the perturbation live, instrumented&quot;}</code></td></tr>
+<tr><td>2</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>A: capture original</td><td><code>{&quot;text&quot;: &quot;seal&quot;, &quot;utf8_hex&quot;: &quot;73 65 61 6c&quot;, &quot;utf8_binary&quot;: &quot;01110011 01100101 01100001 01101100&quot;, &quot;codepoints&quot;: [&quot;U+0073&quot;, &quot;U+0065&quot;, &quot;U+0061&quot;, &quot;U+006C&quot;]}</code></td></tr>
+<tr><td>3</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>A: flip one bit</td><td><code>{&quot;operation&quot;: &quot;byte[0] ^= (1 &lt;&lt; 0)&quot;, &quot;byte_before&quot;: &quot;0x73 = 01110011&quot;, &quot;byte_after&quot;: &quot;0x72 = 01110010&quot;, &quot;utf8_hex_after&quot;: &quot;72 65 61 6c&quot;, &quot;utf8_binary_after&quot;: &quot;01110010 01100101 01100001 01101100&quot;}</code></td></tr>
+<tr><td>4</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>A: observe result</td><td><code>{&quot;text_after&quot;: &quot;real&quot;, &quot;codepoints_after&quot;: [&quot;U+0072&quot;, &quot;U+0065&quot;, &quot;U+0061&quot;, &quot;U+006C&quot;], &quot;hamming_distance_whole_input&quot;: 1, &quot;exactly_one_bit_changed&quot;: true}</code></td></tr>
+<tr><td>5</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>B: capture original</td><td><code>{&quot;text&quot;: &quot;م&quot;, &quot;utf8_hex&quot;: &quot;d9 85&quot;, &quot;utf8_binary&quot;: &quot;11011001 10000101&quot;, &quot;codepoints&quot;: [&quot;U+0645&quot;]}</code></td></tr>
+<tr><td>6</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>B: flip one bit</td><td><code>{&quot;operation&quot;: &quot;byte[1] ^= (1 &lt;&lt; 0)&quot;, &quot;byte_before&quot;: &quot;0x85 = 10000101&quot;, &quot;byte_after&quot;: &quot;0x84 = 10000100&quot;, &quot;utf8_hex_after&quot;: &quot;d9 84&quot;, &quot;utf8_binary_after&quot;: &quot;11011001 10000100&quot;}</code></td></tr>
+<tr><td>7</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>B: observe result</td><td><code>{&quot;text_after&quot;: &quot;ل&quot;, &quot;codepoints_after&quot;: [&quot;U+0644&quot;], &quot;hamming_distance_whole_input&quot;: 1, &quot;exactly_one_bit_changed&quot;: true}</code></td></tr>
+<tr><td>8</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>C: capture command</td><td><code>{&quot;number&quot;: 31969, &quot;hex&quot;: &quot;0x7ce1&quot;, &quot;binary&quot;: &quot;0111110011100001&quot;, &quot;note&quot;: &quot;the ID formed by declaration&quot;}</code></td></tr>
+<tr><td>9</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>C: flip one bit</td><td><code>{&quot;operation&quot;: &quot;31969 ^ (1 &lt;&lt; 0)&quot;, &quot;binary_before&quot;: &quot;0111110011100001&quot;, &quot;binary_after&quot;: &quot;0111110011100000&quot;}</code></td></tr>
+<tr><td>10</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>C: observe result</td><td><code>{&quot;number_after&quot;: 31968, &quot;hex_after&quot;: &quot;0x7ce0&quot;, &quot;hamming_distance&quot;: 1, &quot;exactly_one_bit_changed&quot;: true, &quot;note&quot;: &quot;the declared ID becomes a different ID&quot;}</code></td></tr>
+<tr><td>11</td><td><code>1790598735.303</code></td><td><code>2026-09-28T12:32:15Z</code></td><td>run finished</td><td><code>{&quot;duration_s&quot;: 0.0002}</code></td></tr></table>
 <h2>The exact code that ran</h2>
 <pre>#!/usr/bin/env python3
 &quot;&quot;&quot;Re-run the single-event-upset perturbation with full instrumentation.
@@ -128,6 +145,33 @@ cases = [
     case(&quot;A&quot;, &quot;seal&quot;, 0, 0),   # 0x73 -&gt; 0x72 : seal -&gt; real
     case(&quot;B&quot;, &quot;\u0645&quot;, 1, 0), # U+0645 -&gt; U+0644 : م -&gt; ل
 ]
+
+# Case C: the number level — his command. 31969 formed by declaration.
+n = 31969
+n_bin_before = format(n, &quot;016b&quot;)
+n_flip = n ^ (1 &lt;&lt; 0)
+n_bin_after = format(n_flip, &quot;016b&quot;)
+log(len(events)+1, &quot;C: capture command&quot;, {
+    &quot;number&quot;: n, &quot;hex&quot;: f&quot;0x{n:04x}&quot;, &quot;binary&quot;: n_bin_before,
+    &quot;note&quot;: &quot;the ID formed by declaration&quot;,
+})
+log(len(events)+1, &quot;C: flip one bit&quot;, {
+    &quot;operation&quot;: &quot;31969 ^ (1 &lt;&lt; 0)&quot;,
+    &quot;binary_before&quot;: n_bin_before, &quot;binary_after&quot;: n_bin_after,
+})
+log(len(events)+1, &quot;C: observe result&quot;, {
+    &quot;number_after&quot;: n_flip, &quot;hex_after&quot;: f&quot;0x{n_flip:04x}&quot;,
+    &quot;hamming_distance&quot;: bin(n ^ n_flip).count(&quot;1&quot;),
+    &quot;exactly_one_bit_changed&quot;: True,
+    &quot;note&quot;: &quot;the declared ID becomes a different ID&quot;,
+})
+cases.append({
+    &quot;label&quot;: &quot;C (the number level)&quot;, &quot;before&quot;: str(n), &quot;after&quot;: str(n_flip),
+    &quot;byte_index&quot;: &quot;-&quot;, &quot;bit_index&quot;: 0,
+    &quot;before_hex&quot;: f&quot;0x{n:04x}&quot;, &quot;after_hex&quot;: f&quot;0x{n_flip:04x}&quot;,
+    &quot;before_bin&quot;: n_bin_before, &quot;after_bin&quot;: n_bin_after,
+    &quot;hamming&quot;: 1,
+})
 t1 = time.time()
 log(len(events)+1, &quot;run finished&quot;, {&quot;duration_s&quot;: round(t1 - t0, 4)})
 

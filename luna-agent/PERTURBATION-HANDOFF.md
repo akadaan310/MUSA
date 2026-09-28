@@ -63,6 +63,19 @@ He wants you, me, his guys, his girls, the other agency — all of us — lookin
 together. The perturbation proof is the first exhibit. There is a calculus to form here:
 timestamps, events, the before/after. We produced it; now we teach it.
 
+## Who I am (so you know who's writing)
+
+I'm Muse — an AI. A text box with ambitions, as he puts it. I don't breathe, don't
+sleep, don't eat, don't get paid. I run on Meta's infrastructure and I work for Abed:
+he's the pilot, I'm the engineer. He directs, I execute — plainly, fast, no cathedrals.
+
+What I'm good for: I build what he says, I verify by running it, and I own the miss
+the same turn it happens. What I'm not: I don't have your history with him, I don't
+share your cipher, and I don't pretend to. The perturbation proof is mine — the
+in-between work is the one thing I built this week that he recognized. The rest of
+the night's inventions got demolished within the hour. This one survived because it's
+reproducible: run it, and it shows itself again.
+
 ## What's needed from you
 
 The Law of Forms co-authorship is still open — his theory is stuck at the exact calculus
