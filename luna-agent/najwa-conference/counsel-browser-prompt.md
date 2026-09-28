@@ -68,6 +68,13 @@ change, and the relay serves it at GET /state: tabs [{id, owner, url,
 title, signedIn}], active tab id. The agents always know the state of our
 browser. Site names and URLs only — no secrets, no tokens, ever.
 
+**Suggested accounts.** A "suggested" queue in the Browser surface. The
+agents can add entries {service, signupUrl, why} through the relay; each
+shows as a card with one button: "open signup." I tap it, the tab opens, I
+sign up with my own fingers. This is how the agents recruit new seats
+without ever touching my identity. One account per service — no
+quota games.
+
 Rules:
 
 - No credential ever leaves the phone.
@@ -93,3 +100,32 @@ Acceptance:
    live under the right names.
 
 Call it "Counsel Browser" unless I rename it.
+
+## v3 additions
+
+**Engine verdict (researched):** v1 stays on the system WebView — it ships
+in Expo today and speaks CDP, which is how the operator drives it
+remotely. But structure the tab/engine layer as swappable: the named v2
+candidate is **GeckoView** (Mozilla's embeddable Firefox engine for
+Android) — true per-tab session isolation via GeckoSession, a full
+browser engine, no shared cookie jar. Do not build GeckoView now. Just
+don't paint us into the WebView corner.
+
+**The twin.** The VM relay also hosts a virtual device profile: the same
+tab model, the same state shape, two-way synced with the phone. The
+operator drives the twin; the phone mirrors it live. 100% sync match —
+open the phone and you see exactly what the operator sees. She (Hu) and
+future counsel members get seats on the twin, not on my phone.
+
+**Session sync (not passwords).** With my per-site approval in the app, the
+phone exports *session cookies* — never passwords — to the twin over the
+token-authenticated channel. Every synced site is listed in the app with a
+kill switch. Passwords never leave the phone, ever. Honest caveat: some
+sites (Google especially) may challenge sessions arriving from a VM — for
+those, the phone stays the driver and the twin mirrors state only.
+
+**The operator.** The VM side (relay, bus, operator) runs always-on as
+system services, independent of any chat. It prepares tab groups,
+scenarios, and signup queues on its own, and surfaces one clean summary
+when something needs my eyes. Operational chatter lives in the app, never
+in the main chat.
