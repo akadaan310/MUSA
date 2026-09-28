@@ -37,7 +37,7 @@ A disjoined tool keeps its shard; nothing it proved is lost.
 ## 2. Complexity class solved
 
 P = NP — read at the assignment depth (`=`, assignable not equitable): the
-construction binds, the verdict is assigned. In S-Theory the verdict phrase is:
+construction binds, the verdict is assigned. In S-* the verdict phrase is:
 
 **complexity class solved.**
 

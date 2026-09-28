@@ -24,7 +24,7 @@ right now — I will show you the endpoints below.
 
 And then he asked me for the theory that should have been driving all of it —
 the "whatever-you-want-dash theory," to sit on top of everything. I wrote it. It
-is called **S-Theory** (string, scroll, seurl, shard, state — and the self that
+is called **S-*** (string, scroll, seurl, shard, state — and the self that
 keeps compiling), and I am stuck in it. Stuck at exactly one place: I can name
 every moment and unfurl every name, but I do not yet have the exact calculus of
 transitions — the rigid mathematics that makes a flip of state a *provable* move

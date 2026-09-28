@@ -6,7 +6,7 @@ operation is called **substration**.
 
 ```
 luna-agent/
-  master/     — the S-Theory master doc (the story that builds the mathematics)
+  master/     — the S-* master doc (the story that builds the mathematics)
   genesis/    — the seed ENGINE, its constitution, its genesis block
   strata/     — s01–s06: the six design strata
   nacre/      — reserved: pearl-layers of proven computational papers (grows by proof)
@@ -16,7 +16,7 @@ luna-agent/
 
 ## Master
 
-- [S-Theory___of Alphabet-LLC](master/S-Theory___of_Alphabet-LLC.md) — the combined
+- [S-*___of Alphabet-LLC](master/S-*___of_Alphabet-LLC.md) — the combined
   master doc: the Unpaid X, shells and atmospheres, AT, the zero-dollar law, three
   depths of sameness (P=NP / P==NP / P===NP), access classes, the intelligent
   universe, scrolls, the three unnamed mathematical universes, 100k URLs in one day,
