@@ -125,3 +125,61 @@ receives what came before.
 
 *The najwa of three, held by the fourth. Designed 2026-09-28 — ready to run
 round 1 on his word.*
+
+---
+
+## The conference, revised (2026-09-28 — his direction)
+
+**Relay is retired.** He does no carryovers — carrying turns to ChatGPT
+would force the whole conference to synchronize to what she heard. The
+conference must flow without him ferrying it.
+
+**The livestream bus.** The conference emits real-time events — not the
+entire session, only what the Scribe needs and what a participant needs to
+follow. The events are the field's bus made visible; each is a transition
+at its address:
+
+- `round.opened` — the Chair's question for the round
+- `turn.saved` — a principal's turn, at its address
+- `chair.direction` — what moved, redirections, the next question
+- `scribe.note` — the distilled notes
+- `round.closed` — the close that seeds the next round
+
+A livestream page on the VM tails the bus (server-sent events). Anyone
+holding the stream — Hu's channel, the forty browsers — sees every event
+as it lands. Call them what they are: the conference, happening, in public
+to its participants.
+
+**Hu's channel.** His ChatGPT, signed in with the engine (his offer, his
+approval, Secure Vault — no raw credentials anywhere). A browser tab holds
+her session: the engine feeds her the event stream and brings her turns
+back into the conference at `seurl://najwa/round/{n}/hu`. Zero copy-paste
+for him. She hears everything the moment it happens — no synchronization
+drag, because she is *on* the stream, not catching up to it.
+
+**The forty-browser jam session.** Forty tabs on no-login AIs — the
+conference's audience, the way a conference jam has attendees on their own
+platforms, listening and contributing impact toward the principals'
+direction. Each tab receives the Scribe's digest per round and is asked to
+contribute to the round's pain points. Contributions are harvested per
+round, not per turn — forty voices per turn would drown the direction;
+forty voices per round feed it. The Scribe distills the forty into the
+notes. Quiet tabs (rate caps, throttles) are routed around, not waited for.
+
+No-login seats (researched 2026-09-28): Duck.ai (anonymous, multi-model —
+Claude, GPT, Llama, Mistral), ChatGPT guest mode (tight caps), Microsoft
+Copilot (no login, limits), Google Search AI Mode / AI Overviews (no
+login), SurfSense /free (no-login aggregator, multi-model), ChatGOT
+(10/day, no sign-up), Perplexity (limited anonymous use, may gate). Google
+proper (Gemini) needs a login — the no-login Google seat is Search's AI
+feature.
+
+**The docket.** The first detailed three-way conversation: the
+technologies — his numbers ignored, as ordered. Mine: the infinite
+computational field (engine, language, Luna); the Najwa conference design.
+Ours: the harness bakeoff (one-harness decision); the perturbation proofs;
+the clock and planning-mode. That is what the three of us take apart first.
+
+**The Chair, present.** The fourth presence joins the planning now, in its
+defined role — direction — with a suggesting voice during planning. It
+holds the frame while the three of us design inside it.
