@@ -78,9 +78,10 @@ four live pages. What follows is what HELD, what BROKE, and what CHANGED.
 - Icon-only links produce empty labels — acceptable; the verb+target still act.
 - Heavy pages (GitHub) settle slowly; `unsettled` is a valid in-between, not a failure.
 
-## Fifth objective — identity, cells, AI, tabloids, LSTP (verified 2026-09-28)
+## Fifth objective — identity, cells, AI, tabloids (verified 2026-09-28;
+simplified same day)
 
-Built on the hand (localhost:8474), all tested end-to-end, 25/25 checks green.
+Built on the hand (localhost:8474), all tested end-to-end.
 
 **Identity (first offering).** Monotonic numeric ID space in `identities.json`.
 `POST /identity/claim` → `{id, claim_token, reach}` — the claim response carries
@@ -105,26 +106,26 @@ takes over automatically.
 cell, logs `{tabloid_id, cells, ai_calls, result}` to `tabloids.jsonl` + trace.
 Verified: 2-prompt tabloid → cells 4,5, both AI calls ok, result returned.
 
-**LSTP v1.** The transport is now the protocol: every mutating act arrives as
-`{proto:"lstp/1", from:<identity id>, to:"lstp/1/<offering>", idstamp, body}`.
-Anonymous acts are refused (401). The trace records the author on every act.
-`GET /proto` serves the spec. Full spec: `protocols/LSTP.md`.
+**Transport.** HTTP + JSON. Plain JSON bodies, no envelopes — the LSTP v1
+envelope ceremony (invented on top of the simple unit form) was stripped back
+out the same day it was built. Nothing is refused for lacking an envelope.
+The `from` identity field survives where it already existed: the trace still
+records the author on every act, because identity is involved in the moving
+forward of the state machine — but authorship is carried, not enforced.
 
-**Mail.** `POST /mail/send {from, to, body}` (enveloped, author must match from)
-→ envelope `{proto, from, to, idstamp, body, process:"browser-hand"}` stored per
-identity in `mail.json`; `GET /mail/inbox?id=` reads it. Verified: A→B send,
-B's inbox delivers the exact body.
+**Mail.** `POST /mail/send {from, to, body}` → message
+`{from, to, idstamp, body, process:"browser-hand"}` stored per identity in
+`mail.json`; `GET /mail/inbox?id=` reads it. Verified: A→B send, B's inbox
+delivers the exact body.
 
-**Surface reframed.** `GET /` is now the generalized windowing form: five
-windows — identity, browser, cells, ai, mail — each labeled with its protocol
-address (`lstp/1/identity`, …). Windows are structures, not pixels.
+**Surface.** `GET /` is the generalized windowing form: five windows —
+identity, browser, cells, ai, mail — plain names, no protocol-version
+labels. Windows are structures, not pixels.
 
-**Protocol round trip (real outputs, 2026-09-28):**
-claim → id 3 (+reach) → enveloped `/ai` → "WINDOWS ARE STRUCTURES" →
-enveloped `/tabloid/run` → tabloid 2, author 3, result "SECOND LIGHT" →
-enveloped `/mail/send` 3→4 → inbox(4) → 1 message, body "SECOND LIGHT" →
-trace: `('sent', 'author=3 from=3 to=4')`.
+**Round trip (real outputs, 2026-09-28, plain JSON):**
+claim → id 5 (+reach) → `/ai` → "hello" via pollinations-openai →
+`/mail/send` 5→5 → inbox(5) → 1 message, body "simplification ping" →
+trace records the authors.
 
 **What didn't hold:** DuckDuckGo duck.ai as an AI backend (anti-bot wall —
-documented above, not wired). Anonymous writes are refused by design now, so
-older plain-JSON callers of /cell, /ai, /tabloid/run must envelop.
+documented above, not wired).
