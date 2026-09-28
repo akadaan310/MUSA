@@ -1,6 +1,6 @@
 # Session program — Google test
 
-purl://test/google-session?units=not-unit,composition,url-machine,ramz&mode=probe
+seurl://test/google-session?units=not-unit,composition,url-machine,ramz&mode=probe
 
 ## Purpose
 Send what we built out through a stateless Google session. See how it

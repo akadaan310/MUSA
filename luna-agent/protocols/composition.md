@@ -35,7 +35,7 @@ run as code, depending on the verb applied.
 ## 4. Program-URLs — little URLs composed of IDs
 A program's address is a URL composed of unit ids:
 
-purl://program/<mapping-id>?units=<id>,<id>,<id>
+seurl://program/<mapping-id>?units=<id>,<id>,<id>
 
 Resolving the URL: fetch each unit id, apply the mapping, fill the nots,
 run if runnable. The URL *is* the program — copy the URL, you copy the

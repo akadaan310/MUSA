@@ -1,6 +1,6 @@
 # Session program — cloud design-construct test
 
-purl://test/cloud-session?units=not-unit,composition,url-machine,ramz&mode=design
+seurl://test/cloud-session?units=not-unit,composition,url-machine,ramz&mode=design
 
 ## Purpose
 A design-construct test for the cloud session: the full math of what we
@@ -35,7 +35,7 @@ with the exact step that decides it.
    wrong-ramz refused. Test: fold a TALK message, tamper with it, show the
    refusal.
 
-5. PROGRAM-URL. purl://program/<mapping-id>?units=<ids>. Content-addressed:
+5. PROGRAM-URL. seurl://program/<mapping-id>?units=<ids>. Content-addressed:
    copy the URL, copy the program. Test: give the program-URL for your
    built program from (3).
 
