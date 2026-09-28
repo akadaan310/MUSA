@@ -129,3 +129,22 @@ trace records the authors.
 
 **What didn't hold:** DuckDuckGo duck.ai as an AI backend (anti-bot wall —
 documented above, not wired).
+
+## The bridge (2026-09-28, verified live)
+
+GET /bridge?url=<u>&q=<goal> — the programmable URL. Merges an AI session
+with a live browser session: the AI (pure HTTP, zero browser of its own —
+proven: prompt→response in 4438ms with no Playwright in the process) reads
+the page structures, decides ONE action per step (click/fill/submit/navigate/
+done), the hand executes it in a warm browser context, the observation feeds
+back. AI session + browser session share one trace: every step logged as
+{step, action, observation}. Max 8 steps. Returns a page with the merged
+trace + final result.
+
+Verified against google.com: the AI read the affordance map, chose
+fill index 8 ("seurl") on its own, pressed Enter; when Google answered with
+its bot-check page, the AI adapted and navigated directly to the search URL.
+Two real actions taken from structures it read. The bot wall is Google-side,
+not ours. Terminal form:
+
+  curl "http://127.0.0.1:8474/bridge?url=https://www.google.com&q=your+goal+here"
